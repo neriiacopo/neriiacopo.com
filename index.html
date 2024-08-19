@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=900">
+    <title>Iacopo Neri - Blog</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    
+    <!-- External Stylesheets -->
+    <link href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" rel="stylesheet">
+    <link href="https://unpkg.com/flickity@2.2.1/dist/flickity.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200,600" rel="stylesheet">
+    
+    <!-- External Scripts -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://unpkg.com/flickity@2.2.1/dist/flickity.pkgd.js"></script>
+    <script src="https://unpkg.com/infinite-scroll@4/dist/infinite-scroll.pkgd.min.js"></script>
+    
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page" class="noY">
+        <div class="head">
+            <div class="container">
+                <h2>Iacopo Neri</h2>
+                <div class="container py-5">
+                    <div class="output" id="output">
+                        <h1 class="cursor">computing : </h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Section -->
+        <div class="blog">
+            <div class="chapter">
+                <p>a little bit of everything from time to time</p>
+                <h1>Blog</h1>
+            </div>
+            <div class="content" data-infinite-scroll='{ 
+                "path": "https://neriiacopo.com/page/{{#}}", 
+                "append": ".photo",
+                "history": false, 
+                "scrollThreshold": false, 
+                "button": ".scroll-more"}'>
+                {block:Posts}
+                {block:Photo}
+                <article class="photo">
+                    <img class="post shadow" src="{PhotoURL-500}" alt="{PhotoAlt}" />
+                    <ul class="share-buttons">
+                        <li><a href="https://www.facebook.com/sharer.php?u={PhotoURL-HighRes}" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f fa-1x" aria-hidden="true"></i><span class="sr-only">Share on Facebook</span></a></li>
+                        <li><a href="https://twitter.com/share?url={PhotoURL-HighRes}" target="_blank" title="Tweet"><i class="fab fa-twitter fa-1x" aria-hidden="true"></i><span class="sr-only">Tweet</span></a></li>
+                        <li><a href="https://www.tumblr.com/share/link?url={PhotoURL-HighRes}" target="_blank" title="Post to Tumblr"><i class="fab fa-tumblr fa-1x" aria-hidden="true"></i><span class="sr-only">Post to Tumblr</span></a></li>
+                        <li><a href="https://pinterest.com/pin/create/button/?url={PhotoURL-HighRes}" target="_blank" title="Pin it"><i class="fab fa-pinterest-p fa-1x" aria-hidden="true"></i><span class="sr-only">Pin it</span></a></li>
+                        <li><a href="{PhotoURL-HighRes}" target="_blank" title="Link it"><i class="fas fa-link fa-1x" aria-hidden="true"></i><span class="sr-only">Link</span></a></li>
+                    </ul>
+                    {block:Caption}
+                    <div class="more" id="pop-up">
+                        <div id="content-more">
+                            <div id="content-more-text">{Caption}</div>
+                        </div>
+                        <div class="tag-more pointer">
+                            <a id="pointer" class="test">info</a>
+                        </div>
+                    </div>
+                    {/block:Caption}
+                </article>
+                {/block:Photo}
+                {/block:Posts}
+            </div>
+            <button class="scroll-more shadow" id="scrollbtn">+</button>
+        </div>
+
+        <!-- Work Section -->
+        <div class="blog">
+            <div class="chapter">
+                <p>selected samples</br>of my research</p>
+                <h1>Work</h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="main-gallery js-flickity" data-flickity-options='{ "cellAlign": "center", "contain": true, "wrapAround": true, "pageDots": false}'>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1G-k3IwtWlPDC2lJ1aM1i7TDpSIMpQTJk"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1Nzxd7qanDkIm_IMZqFYu7L-kTvZ5beZA"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1JXaY6ypI-mIlR03uQhBM1Pohc3jtid76"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1B_thLnC8AfDe1_M-QNT916XVpY3auvtu"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1bo0LBMjvtb44fRThwsLFV7TSitADRQOv"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=14JL1iAYnmtC5si5Bs_joMgDGLkn23PYB"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=1uzez-kN2jawVCByx7f-z0Vaxfk-NmD98"></div>
+                <div class="gallery-cell"><img src="https://drive.google.com/uc?export=view&id=14u5erZYQ2dj4bzC1Ijw99XIURx2i3vPs"></div>
+            </div>
+        </div>
+
+        <!-- Bio Section -->
+        <div class="blog">
+            <div class="chapter">
+                <p>a very brief <br> Curriculum Vitae</p>
+                <h1>Bio</h1>
+            </div>
+        </div>
+        <div class="content">
+            <div class="twocolumns">
+                <p>Iacopo Neri’s research lies at the intersection of architecture, computer science, and urban planning.</br></br>Iacopo has been involved in academia since 2015, researching computational design and geospatial analysis...</p>
+                <img class="profile shadow" src="https://drive.google.com/uc?export=view&id=1gdZ60i-UCh9xyrPUgyfXgYhhqp7e-4Nx" alt="iacoponeri"/>
+            </div>
+        </div>
+        <div class="colophon">
+            <ul class="contact-buttons">
+                <li><a href="https://www.pinterest.it/iacoponeri/" target="_blank" title="Follow me on Pinterest"><i class="fab fa-pinterest-p fa-1x" aria-hidden="true"></i><span class="sr-only">Follow me on Pinteres</span></a></li>
+                <li><a href="https://www.linkedin.com/in/iacopo-neri-25a375132/" target="_blank" title="Connect with me on Linkedin"><i class="fab fa-linkedin fa-1x" aria-hidden="true"></i><span class="sr-only">Connect with me on Pinteres</span></a></li>
+            </ul>
+            <hr>
+            <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="License Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+            <p>2015 - 2019 Iacopo Neri unless otherwise specified</p>
+        </div>
+    </div>
+
+    <!-- Local JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
