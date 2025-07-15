@@ -1,0 +1,65 @@
+[
+    {
+        "title": "Digital F(r)ictions",
+        "imgUrl": "/img/digital-frictions.png",
+        "pageUrl": "https://www.digital-frictions.com/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "Fly-Meet",
+        "imgUrl": "/img/fly-meet.png",
+        "pageUrl": "https://www.fly-meet.com/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "3d Visibility",
+        "imgUrl": "/img/3d-visibility2.png",
+        "pageUrl": "https://neriiacopo.github.io/webviewer-3Dvisibility/index",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "Multipli(city)",
+        "imgUrl": "/img/multipli-city.png",
+        "pageUrl": "https://multipli-city.github.io/2023-24/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "Greening Cities",
+        "imgUrl": "/img/greening-cities.png",
+        "pageUrl": "https://neriiacopo.github.io/CitiesMatchMaking-viz/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "Emerging Assemblages website",
+        "imgUrl": "/img/kosovo-biennial.png",
+        "pageUrl": "to be published",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    },
+    {
+        "title": "Itzal",
+        "imgUrl": "/img/itzal.png",
+        "pageUrl": "https://neriiacopo.github.io/itzal-landingpage/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        }
+    }
+]
