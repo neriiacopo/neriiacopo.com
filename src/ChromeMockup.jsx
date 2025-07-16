@@ -83,7 +83,7 @@ export default function ChromeMockup({
                         sx={{
                             minWidth: maximized ? "80vw" : "600px",
                             maxWidth: maximized ? "80vw" : "600px",
-                            height: maximized ? "90vh" : "auto",
+                            maxHeight: maximized ? "90vh" : "auto",
                             transformOrigin: "center",
                             // m: maximized ? 5 : 0,
                             borderRadius: 2,
