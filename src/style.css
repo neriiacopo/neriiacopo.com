@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+#root {
+    position: absolute;
+    top: -20vh;
+    left: -20vw;
+    width: 140vw;
+    height: 140vh;
+    /* background-color: #7154fe; */
+}
+
+.active {
+    z-index: 100;
+    border: 10px solid yellow;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Firefox */
+* {
+    /* scrollbar-width: thin; */
+    scrollbar-color: #fff transparent;
+}
