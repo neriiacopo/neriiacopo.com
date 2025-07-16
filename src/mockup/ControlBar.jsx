@@ -2,8 +2,18 @@ import { Box, IconButton } from "@mui/material";
 
 import { Close, Remove, CropSquare } from "@mui/icons-material";
 
-export default function ControlBar({ platform, colors }) {
+export default function ControlBar({
+    platform,
+    colors,
+    maximized,
+    setMaximized,
+}) {
     const isMac = platform === "mac";
+    const dims = {
+        width: 12,
+        height: 12,
+        borderRadius: "50%",
+    };
 
     return (
         <Box
@@ -12,28 +22,9 @@ export default function ControlBar({ platform, colors }) {
                 justifyContent: isMac ? "flex-start" : "space-between",
                 alignItems: "center",
                 py: 0.25,
-                // backgroundColor: colors.main,
                 cursor: "grab",
-                // backdropFilter: "blur(10px)",
             }}
         >
-            <PlatformBtns
-                isMac={isMac}
-                colors={colors}
-            />
-        </Box>
-    );
-}
-
-function PlatformBtns({ isMac = false, colors }) {
-    const dims = {
-        width: 12,
-        height: 12,
-        borderRadius: "50%",
-    };
-
-    return (
-        <>
             {isMac ? (
                 <Box sx={{ display: "flex", gap: 1, p: 1.5 }}>
                     <Box sx={{ ...dims, backgroundColor: "#ff5f56" }} />
@@ -67,6 +58,9 @@ function PlatformBtns({ isMac = false, colors }) {
                             borderRadius: 0,
                             color: colors.btns,
                         }}
+                        onClick={() => {
+                            setMaximized((prev) => !prev);
+                        }}
                     >
                         <CropSquare fontSize="inherit" />
                     </IconButton>
@@ -83,6 +77,6 @@ function PlatformBtns({ isMac = false, colors }) {
                     </IconButton>
                 </Box>
             )}
-        </>
+        </Box>
     );
 }

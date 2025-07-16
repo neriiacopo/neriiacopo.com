@@ -27,6 +27,8 @@ const colorsBig = {
 
 const colors = colorsBig[mode];
 
+document.body.style.background = colors.background;
+
 let theme = createTheme({
     colors,
 });

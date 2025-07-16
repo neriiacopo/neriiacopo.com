@@ -24,9 +24,7 @@ export default function NavigationBar({ content, colors }) {
                 alignItems: "center",
                 px: 1,
                 py: 0.5,
-                // backgroundColor: colors.main,
                 borderBottom: `1px solid ${colors.brd}`,
-                // backdropFilter: "blur(10px)",
             }}
         >
             {/* Left navigation icons */}

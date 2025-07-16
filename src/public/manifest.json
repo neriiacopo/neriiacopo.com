@@ -6,7 +6,8 @@
         "dims": {
             "width": 1919,
             "height": 1060
-        }
+        },
+        "description": "Digital F(r)ictions is a research-creation project selected for MAMBO’s Digital Residency, organized by the Museo de Arte Moderno de Bogotá. Developed together the Digital Visual Studies team, the project uses artificial intelligence to explore and reinterpret Bogotá through the lens of the museum’s digital collection. By analyzing visual and textual features from artworks, the project constructs new artistic and urban narratives, offering critical reflections on both the city and the role of AI in cultural institutions. The initiative merges curatorial practice with machine learning, re-signifying the MAMBO Collection while addressing ethical and cultural dimensions of digital technologies."
     },
     {
         "title": "Fly-Meet",
@@ -20,7 +21,7 @@
         "description": "Fly&Meet is a non-profit project that provides a platform to find affordable shared destinations among multiple origins. People from different places find the most comfortable destination for both parties. Technically, it leverages the Kiwi API to make multi-origins flights search and filters the results to show the cumulatively cheapest destinations.  Interestingly, the platform reveals the hidden geography of the aerial network where the most affordable destinations between two nodes might fall far from their middle location."
     },
     {
-        "title": "3d Visibility",
+        "title": "3D Visibility study",
         "imgUrl": "/img/3d-visibility2.png",
         "pageUrl": "https://neriiacopo.github.io/webviewer-3Dvisibility/index",
         "dims": {
@@ -50,7 +51,7 @@
         "description": "Cities Matchmaking is a platform to inspect the results of the homonym publication developed together with Erze Dinarama for the opening chapter of The Routledge Handbook on Greening High-Density Cities edited by Peng Du, Kheir Al-Kodmany, Mir M. Ali. The visualization shows in an interactive fashion the study carried out on a set of global cities  (approx 4500) in the search of ecological twins to support international collaboration projects in the face of climate changes. More precisely, the research produces 7 map indicators for every city, later analyzed for similarity via Machine Learning algorithms."
     },
     {
-        "title": "Emerging Assemblages website",
+        "title": "Emerging Assemblages: Kosovo's website at the Venice Biennale 2025",
         "imgUrl": "/img/kosovo-biennial.png",
         "pageUrl": "to be published",
         "dims": {

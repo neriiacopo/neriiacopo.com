@@ -1,10 +1,11 @@
-import { useState, useRef } from "react";
-import { Box, Typography, Paper, Button } from "@mui/material";
+import { useState, useEffect, useRef } from "react";
+import { Box, Typography, Paper } from "@mui/material";
 import Draggable from "react-draggable";
 import { useTheme } from "@mui/material";
 
 import NavigationBar from "./mockup/NavigationBar";
 import ControlBar from "./mockup/ControlBar";
+import Info from "./Info";
 
 export default function ChromeMockup({
     content = {
@@ -19,11 +20,15 @@ export default function ChromeMockup({
     imgBackground = true,
     zIndex = 1,
 }) {
+    const nodeRef = useRef(null);
     const theme = useTheme();
     const colors = theme.colors;
     const [loaded, setLoaded] = useState(false);
-    const CLICK_TIME_THRESHOLD = 150;
-    const mouseDownTime = useRef(0);
+    const [maximized, setMaximized] = useState(false);
+    const [dragPos, setDragPos] = useState({
+        x: position.left,
+        y: position.top,
+    });
 
     const backImgS = {
         backgroundImage: content.imgUrl ? `url(${content.imgUrl})` : "none",
@@ -31,22 +36,36 @@ export default function ChromeMockup({
         backgroundPosition: "center",
     };
 
+    useEffect(() => {
+        setMaximized(false);
+    }, [active]);
+
     return (
         <Draggable
             handle=".drag-handle"
             bounds="#root"
+            nodeRef={nodeRef}
+            disabled={maximized}
+            position={maximized ? { x: 0, y: 0 } : dragPos}
+            onStop={(e, data) => {
+                setDragPos({ x: data.x, y: data.y });
+            }}
             onMouseDown={(e) => {
                 e.stopPropagation();
                 onClick();
             }}
         >
             <Box
+                ref={nodeRef}
                 sx={{
                     position: "absolute",
-                    top: position.top,
-                    left: position.left,
+                    top: maximized ? "20vh" : `auto`,
+                    left: maximized ? "20vw" : `auto`,
                     zIndex: active ? 1000 : zIndex,
                     pointerEvents: "none",
+                    m: maximized ? 4 : 0,
+                    p: 0,
+                    transition: maximized ? "all 0.3s" : "none",
                 }}
             >
                 {/* This part is scaled */}
@@ -62,17 +81,23 @@ export default function ChromeMockup({
                     <Paper
                         elevation={active ? 10 : 1}
                         sx={{
-                            minWidth: "600px",
-                            maxWidth: "600px",
+                            minWidth: maximized ? "80vw" : "600px",
+                            maxWidth: maximized ? "80vw" : "600px",
+                            height: maximized ? "90vh" : "auto",
+                            transformOrigin: "center",
+                            // m: maximized ? 5 : 0,
                             borderRadius: 2,
                             overflow: "hidden",
                             backgroundColor: colors.main,
                             border: `1px solid ${colors.brd}`,
                             ...(imgBackground ? backImgS : {}),
+                            transition:
+                                "min-width 0.3s ease,max-width 0.3s ease",
                         }}
                         className="browser"
                     >
                         {/* Header */}
+
                         <Box
                             sx={{ backdropFilter: "blur(50px)" }}
                             className="drag-handle"
@@ -80,6 +105,8 @@ export default function ChromeMockup({
                             <ControlBar
                                 platform={platform}
                                 colors={colors}
+                                maximized={maximized}
+                                setMaximized={setMaximized}
                             />
                             <NavigationBar
                                 content={content}
@@ -90,32 +117,14 @@ export default function ChromeMockup({
                         <Box
                             sx={{
                                 backgroundColor: "#fff",
-                                height: "100%",
+
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
                                 cursor: "pointer",
+                                overflow: "hidden",
                             }}
                             className="drag-handle"
-                            onMouseDown={() => {
-                                mouseDownTime.current = Date.now();
-                            }}
-                            onMouseUp={() => {
-                                const duration =
-                                    Date.now() - mouseDownTime.current;
-                                if (
-                                    duration < CLICK_TIME_THRESHOLD &&
-                                    content.pageUrl &&
-                                    !active
-                                ) {
-                                    // window.open(
-                                    //     content.pageUrl,
-                                    //     "_blank",
-                                    //     "width=50vw,height=50vh,noopener,noreferrer"
-                                    // );
-                                    window.open(content.pageUrl, "_blank");
-                                }
-                            }}
                         >
                             {content.imgUrl ? (
                                 <img
@@ -137,59 +146,45 @@ export default function ChromeMockup({
                                     No image loaded
                                 </Typography>
                             )}
+
+                            {/* {maximized ? (
+                                <iframe
+                                    src={content.pageUrl}
+                                    title={content.title}
+                                    style={{
+                                        width: "100%",
+                                        height: "100%",
+                                        border: "none",
+                                        scale: 0.5,
+                                    }}
+                                />
+                            ) : content.imgUrl ? (
+                                <img
+                                    src={content.imgUrl}
+                                    alt={content.title}
+                                    draggable={false}
+                                    onLoad={() => setLoaded(true)}
+                                    style={{
+                                        maxWidth: "100%",
+                                        maxHeight: "100%",
+                                        objectFit: "contain",
+                                    }}
+                                />
+                            ) : (
+                                <Typography
+                                    variant="body2"
+                                    color="text.secondary"
+                                >
+                                    No image loaded
+                                </Typography>
+                            )} */}
                         </Box>
 
-                        <Button
-                            sx={{
-                                position: "absolute",
-                                color: colors.text,
-                                backgroundColor: colors.background,
-                                p: 1,
-                                px: 2,
-                                border: `1px solid ${colors.brd}`,
-                                borderRadius: 1000,
-                                mt: active ? 1 : -1,
-                                opacity: active ? 1 : 0.0,
-                                zIndex: -1,
-                                textTransform: "none",
-                                fontFamily: "Manrope, sans-serif",
-                                transition:
-                                    "margin 0.6s ease-in-out, opacity 0.6s ease-in-out",
-                            }}
-                        >
-                            Visit 🔗
-                        </Button>
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                color: colors.text,
-                                backgroundColor: colors.background,
-                                top: 0,
-                                left: "100%",
-                                width: "300px",
-                                p: 1,
-                                px: 2,
-                                borderRadius: 2,
-                                ml: active ? 1 : -3,
-                                opacity: active ? 1 : 0.0,
-                                zIndex: -1,
-                                textTransform: "none",
-                                fontFamily: "Manrope, sans-serif",
-                                transition:
-                                    "margin 0.6s ease-in-out, opacity 0.6s ease-in-out",
-                                border: `1px solid ${colors.brd}`,
-                            }}
-                        >
-                            <Typography
-                                variant="h6"
-                                gutterBottom
-                            >
-                                {content.title}
-                            </Typography>
-                            <Typography variant="body2">
-                                {content.description}
-                            </Typography>
-                        </Box>
+                        <Info
+                            content={content}
+                            colors={colors}
+                            active={active}
+                        />
                     </Paper>
                 </Box>
             </Box>

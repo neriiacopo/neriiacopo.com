@@ -20,12 +20,26 @@ function Index() {
             .then((data) => {
                 data.forEach((el) => {
                     el.position = {};
-                    el.position.top = `${Math.floor(Math.random() * 50) + 10}%`;
-                    el.position.left = `${
-                        Math.floor(Math.random() * Math.random() * 80) + 10
-                    }%`;
+                    // el.position.top = `${Math.floor(Math.random() * 50) + 10}%`;
+                    // el.position.left = `${
+                    //     Math.floor(Math.random() * Math.random() * 80) + 10
+                    // }%`;
+
+                    const screenDims = {
+                        width: window.innerWidth,
+                        height: window.innerHeight,
+                    };
+                    el.position.top =
+                        Math.floor(
+                            Math.random() * ((screenDims.height / 5) * 3)
+                        ) +
+                        screenDims.height / 5;
+                    el.position.left =
+                        Math.floor(
+                            Math.random() * ((screenDims.width / 5) * 3)
+                        ) +
+                        screenDims.width / 5;
                 });
-                console.log(data);
                 setManifest(data.sort(() => Math.random() - 0.5));
             })
             .catch((error) => {

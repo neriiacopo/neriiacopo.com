@@ -60,6 +60,22 @@ export default function About() {
                     social studies.
                 </Typography>
             </Stack>
+            <Box
+                sx={{
+                    position: "fixed",
+                    bottom: 0,
+                    right: 0,
+                    p: 4,
+                    pointerEvents: "none",
+                }}
+            >
+                <img
+                    src="/logo.png"
+                    alt="Logo"
+                    width={42}
+                    height={42}
+                />
+            </Box>
         </Box>
     );
 }
