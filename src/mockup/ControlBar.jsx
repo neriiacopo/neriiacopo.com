@@ -28,7 +28,12 @@ export default function ControlBar({
             {isMac ? (
                 <Box sx={{ display: "flex", gap: 1, p: 1.5 }}>
                     <Box sx={{ ...dims, backgroundColor: "#ff5f56" }} />
-                    <Box sx={{ ...dims, backgroundColor: "#ffbd2e" }} />
+                    <Box
+                        sx={{ ...dims, backgroundColor: "#ffbd2e" }}
+                        onClick={() => {
+                            setMaximized((prev) => !prev);
+                        }}
+                    />
                     <Box sx={{ ...dims, backgroundColor: "#27c93f" }} />
                 </Box>
             ) : (
