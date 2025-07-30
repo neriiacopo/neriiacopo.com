@@ -7,7 +7,7 @@ import ScreenCanvas from "./ScreenCanvas";
 import About from "./About";
 
 import { useState, useEffect } from "react";
-
+import { useStore } from "./store/useStore";
 import theme from "/theme.js";
 
 function Index() {
@@ -24,23 +24,44 @@ function Index() {
                     // el.position.left = `${
                     //     Math.floor(Math.random() * Math.random() * 80) + 10
                     // }%`;
-
                     const screenDims = {
                         width: window.innerWidth,
                         height: window.innerHeight,
                     };
-                    el.position.top =
-                        Math.floor(
-                            Math.random() * ((screenDims.height / 5) * 3)
-                        ) +
-                        screenDims.height / 5;
-                    el.position.left =
-                        Math.floor(
-                            Math.random() * ((screenDims.width / 5) * 3)
-                        ) +
-                        screenDims.width / 5;
+
+                    // Adjust gap Y (minimized)
+                    if (theme.isDesktop || theme.isTablet) {
+                        el.position.top =
+                            Math.floor(
+                                Math.random() * ((screenDims.height / 5) * 3)
+                            ) +
+                            screenDims.height / 5;
+                    } else {
+                        el.position.top =
+                            Math.random() * ((screenDims.height / 5) * 3) +
+                            (screenDims.height / 5) * 1;
+                    }
+                    if (theme.isDesktop || theme.isTablet) {
+                        el.position.left =
+                            Math.random() * ((screenDims.width / 5) * 4) +
+                            screenDims.width / 5;
+                    } else {
+                        el.position.left =
+                            Math.random() * ((screenDims.width / 5) * 2) +
+                            screenDims.width / 5;
+                    }
+
+                    // if (theme.isMobile) {
+                    //     el.position.top = -el.position.top;
+                    // }
+
+                    // el.position.top = "500";
+                    // el.position.left = "600";
                 });
                 setManifest(data.sort(() => Math.random() - 0.5));
+                useStore.setState({
+                    manifest: data.sort(() => Math.random() - 0.5),
+                });
             })
             .catch((error) => {
                 console.error("Error fetching manifest:", error);

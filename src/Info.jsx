@@ -1,10 +1,12 @@
 import { Button, Box, Typography } from "@mui/material";
 
-export default function Info({ content, colors, active }) {
+export default function Info({ content, colors, active, maximized, onChange }) {
     const transitionS = {
         transition:
             "margin 0.6s ease-in-out, opacity 0.6s ease-in-out, all 0.3s ease",
     };
+
+    const off = "0.5vw";
     return (
         <>
             <Button
@@ -16,7 +18,7 @@ export default function Info({ content, colors, active }) {
                     px: 2,
                     border: `1px solid ${colors.brd}`,
                     borderRadius: 1000,
-                    mt: active ? 1 : -1,
+                    mt: active ? off : -1,
                     opacity: active ? 1 : 0.0,
                     zIndex: -1,
                     textTransform: "none",
@@ -37,11 +39,11 @@ export default function Info({ content, colors, active }) {
                     backgroundColor: colors.background,
                     top: 0,
                     left: "100%",
-                    width: "300px",
+                    width: maximized ? "17.5vw" : "300px",
                     p: 1,
                     px: 2,
                     borderRadius: 2,
-                    ml: active ? 1 : -3,
+                    ml: active ? off : -3,
                     opacity: active ? 1 : 0.0,
                     zIndex: -1,
                     textTransform: "none",

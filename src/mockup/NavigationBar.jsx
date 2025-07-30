@@ -26,6 +26,7 @@ export default function NavigationBar({ content, colors }) {
                 py: 0.5,
                 borderBottom: `1px solid ${colors.brd}`,
             }}
+            className="btns"
         >
             {/* Left navigation icons */}
             {navIcons.left.map((icon, index) => (

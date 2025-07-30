@@ -5,8 +5,9 @@ import { Close, Remove, CropSquare } from "@mui/icons-material";
 export default function ControlBar({
     platform,
     colors,
-    maximized,
     setMaximized,
+    setClosed,
+    setMinimized,
 }) {
     const isMac = platform === "mac";
     const dims = {
@@ -27,14 +28,24 @@ export default function ControlBar({
         >
             {isMac ? (
                 <Box sx={{ display: "flex", gap: 1, p: 1.5 }}>
-                    <Box sx={{ ...dims, backgroundColor: "#ff5f56" }} />
+                    <Box
+                        sx={{ ...dims, backgroundColor: "#ff5f56" }}
+                        onClick={() => {
+                            setClosed(true);
+                        }}
+                    />
                     <Box
                         sx={{ ...dims, backgroundColor: "#ffbd2e" }}
                         onClick={() => {
                             setMaximized((prev) => !prev);
                         }}
                     />
-                    <Box sx={{ ...dims, backgroundColor: "#27c93f" }} />
+                    <Box
+                        sx={{ ...dims, backgroundColor: "#27c93f" }}
+                        onClick={() => {
+                            setMinimized(true);
+                        }}
+                    />
                 </Box>
             ) : (
                 <Box
@@ -51,6 +62,9 @@ export default function ControlBar({
                             py: 1,
                             borderRadius: 0,
                             color: colors.btns,
+                        }}
+                        onClick={() => {
+                            setMinimized(true);
                         }}
                     >
                         <Remove fontSize="inherit" />
@@ -76,6 +90,9 @@ export default function ControlBar({
                             py: 1,
                             borderRadius: 0,
                             color: colors.btns,
+                        }}
+                        onClick={() => {
+                            setClosed(true);
                         }}
                     >
                         <Close fontSize="inherit" />

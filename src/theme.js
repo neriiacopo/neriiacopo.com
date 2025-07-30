@@ -1,8 +1,26 @@
 import { createTheme } from "@mui/material/styles";
+import { getDeviceInfo } from "./utils";
 
 const imgBackground = true;
 
 const mode = "dark";
+
+const device = getDeviceInfo();
+
+const rootStyle = document.getElementById("root")?.style;
+if (rootStyle) {
+    if (!device.isMobile) {
+        rootStyle.top = "-20vh";
+        rootStyle.left = "-20vw";
+        rootStyle.width = "140vw";
+        rootStyle.height = "140vh";
+    } else {
+        rootStyle.top = 0;
+        rootStyle.left = "-10vw";
+        rootStyle.width = "120vw";
+        rootStyle.height = "100vh";
+    }
+}
 
 const colorsBig = {
     light: {
@@ -31,6 +49,10 @@ document.body.style.background = colors.background;
 
 let theme = createTheme({
     colors,
+    isMobile: device.isMobile,
+    isTablet: device.isTablet,
+    isDesktop: device.isDesktop,
+    platform: device.platform,
 });
 
 export default theme;

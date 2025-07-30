@@ -26,3 +26,32 @@ export function setActive(event) {
         }
     });
 }
+
+export function getDeviceType() {
+    if (typeof window === "undefined") {
+        return { isMobile: false, isTablet: false, isDesktop: true };
+    }
+
+    const ua = navigator.userAgent;
+
+    // User agent detection
+    const isIPad = /iPad|Macintosh/.test(ua) && "ontouchend" in document;
+    const isMobileUA = /Mobi|Android|iPhone|iPod/i.test(ua);
+
+    // Screen size fallback
+    const isMobileScreen = window.matchMedia("(max-width: 767px)").matches;
+    const isTabletScreen = window.matchMedia(
+        "(min-width: 768px) and (max-width: 1024px)"
+    ).matches;
+
+    const isMobile = (isMobileUA || isMobileScreen) && !isIPad;
+    // const isMobile = true;
+    const isTablet = isIPad || isTabletScreen;
+    const isDesktop = !isMobile && !isTablet;
+
+    return { isMobile, isTablet, isDesktop };
+}
+
+export function getDeviceInfo() {
+    return { ...getDeviceType(), platform: detectPlatform() };
+}

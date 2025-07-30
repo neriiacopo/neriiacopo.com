@@ -1,22 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment, use } from "react";
 import { Box } from "@mui/material";
 
 import ChromeMockup from "./ChromeMockup";
-import { detectPlatform } from "./utils";
+
 import { useTheme } from "@mui/material";
+import { useStore } from "./store/useStore";
 
 export default function ScreenCanvas({ manifest, desktopRef }) {
-    const [platform, setPlatform] = useState("win");
     const [stack, setStack] = useState([]);
-    const [active, setActive] = useState(null);
     const [visibleItems, setVisibleItems] = useState([]);
+    const [mobileImg, setMobileImg] = useState(null);
+    const active = useStore((state) => state.active);
 
     const theme = useTheme();
     const colors = theme.colors;
-
-    useEffect(() => {
-        setPlatform(detectPlatform());
-    }, []);
 
     // Initialize stack on first load
     useEffect(() => {
@@ -36,7 +33,7 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
     }, [manifest]);
 
     const bringToFront = (clickedIndex) => {
-        setActive(clickedIndex);
+        useStore.setState({ active: clickedIndex });
         setStack((prevStack) => {
             const newStack = prevStack.filter((i) => i !== clickedIndex);
             newStack.push(clickedIndex);
@@ -44,9 +41,21 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
         });
     };
 
+    useEffect(() => {
+        if (active !== null && theme.isMobile) {
+            const activeItem = manifest[active];
+            if (activeItem && activeItem.imgUrl) {
+                setMobileImg(activeItem.imgUrl);
+            }
+        } else {
+            // setMobileImg(null);
+        }
+    }, [active, manifest, theme.isMobile]);
+
     return (
         <>
-            {manifest.length > 0 &&
+            {theme.isMobile != undefined &&
+                manifest.length > 0 &&
                 manifest.map((item, index) => {
                     if (!visibleItems.includes(index)) return null;
 
@@ -58,22 +67,28 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
                             content={{
                                 imgUrl: item.imgUrl,
                                 pageUrl: item.pageUrl,
-                                dims: item.dims || { width: 800, height: 600 },
+                                dims: item.dims || {
+                                    width: 800,
+                                    height: 600,
+                                },
                                 title: item.title || "Mockup Content",
                                 description:
                                     item.description ||
                                     "No description provided.",
                             }}
                             position={item.position}
-                            platform={platform}
+                            platform={theme.platform}
                             active={active === index}
-                            zIndex={zIndex + 10}
+                            zIndex={zIndex + 1}
                             onClick={() => bringToFront(index)}
+                            onClose={() => {
+                                useStore.setState({ active: null });
+                            }}
+                            isMobile={theme.isMobile}
                             desktopRef={desktopRef}
                         />
                     );
                 })}
-
             {/* Dark background overlay */}
             <Box
                 sx={{
@@ -83,13 +98,13 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
                     width: "100vw",
                     height: "100vh",
                     zIndex: 100,
-                    opacity: active === null ? 0 : 0.5,
+
+                    opacity: active === null || theme.isMobile ? 0 : 0.5,
                     backgroundColor: colors.background,
-                    transition: "opacity 1s ease",
+                    transition: "opacity 0.5s ease",
                     pointerEvents: "none",
                 }}
             />
-
             {/* Dummy for outside click*/}
             <Box
                 sx={{
@@ -101,7 +116,7 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
                     opacity: active === null ? 0 : 100,
                     pointerEvents: "auto",
                 }}
-                onClick={() => setActive(null)}
+                onClick={() => useStore.setState({ active: null })}
             />
         </>
     );
