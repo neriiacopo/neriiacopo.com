@@ -33,18 +33,21 @@ export default function ControlBar({
                         onClick={() => {
                             setClosed(true);
                         }}
+                        className="btns"
                     />
                     <Box
                         sx={{ ...dims, backgroundColor: "#ffbd2e" }}
                         onClick={() => {
                             setMaximized((prev) => !prev);
                         }}
+                        className="btns"
                     />
                     <Box
                         sx={{ ...dims, backgroundColor: "#27c93f" }}
                         onClick={() => {
                             setMinimized(true);
                         }}
+                        className="btns"
                     />
                 </Box>
             ) : (
@@ -66,6 +69,7 @@ export default function ControlBar({
                         onClick={() => {
                             setMinimized(true);
                         }}
+                        className="btns"
                     >
                         <Remove fontSize="inherit" />
                     </IconButton>
@@ -80,6 +84,7 @@ export default function ControlBar({
                         onClick={() => {
                             setMaximized((prev) => !prev);
                         }}
+                        className="btns"
                     >
                         <CropSquare fontSize="inherit" />
                     </IconButton>
@@ -94,6 +99,7 @@ export default function ControlBar({
                         onClick={() => {
                             setClosed(true);
                         }}
+                        className="btns"
                     >
                         <Close fontSize="inherit" />
                     </IconButton>

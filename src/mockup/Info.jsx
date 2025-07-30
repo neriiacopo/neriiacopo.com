@@ -12,18 +12,20 @@ export default function Info({ content, colors, active, maximized, onChange }) {
             <Button
                 sx={{
                     position: "absolute",
+                    bottom: 0,
                     color: colors.text,
                     backgroundColor: colors.background,
                     p: 1,
                     px: 2,
                     border: `1px solid ${colors.brd}`,
                     borderRadius: 1000,
-                    mt: active ? off : -1,
+                    mb: `-${off}`,
                     opacity: active ? 1 : 0.0,
                     zIndex: -1,
                     textTransform: "none",
                     fontFamily: "Manrope, sans-serif",
                     visibility: active ? "visible" : "hidden",
+                    transform: active ? `translateY(100%)` : "none",
                     ...transitionS,
                 }}
                 onClick={() => {

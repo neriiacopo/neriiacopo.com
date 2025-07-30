@@ -1,7 +1,8 @@
 import { useState, useEffect, Fragment, use } from "react";
 import { Box } from "@mui/material";
 
-import ChromeMockup from "./ChromeMockup";
+import Mockup from "./mockup/Mockup";
+import Toggle from "./Toggle";
 
 import { useTheme } from "@mui/material";
 import { useStore } from "./store/useStore";
@@ -9,7 +10,6 @@ import { useStore } from "./store/useStore";
 export default function ScreenCanvas({ manifest, desktopRef }) {
     const [stack, setStack] = useState([]);
     const [visibleItems, setVisibleItems] = useState([]);
-    const [mobileImg, setMobileImg] = useState(null);
     const active = useStore((state) => state.active);
 
     const theme = useTheme();
@@ -41,41 +41,19 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
         });
     };
 
-    useEffect(() => {
-        if (active !== null && theme.isMobile) {
-            const activeItem = manifest[active];
-            if (activeItem && activeItem.imgUrl) {
-                setMobileImg(activeItem.imgUrl);
-            }
-        } else {
-            // setMobileImg(null);
-        }
-    }, [active, manifest, theme.isMobile]);
-
     return (
         <>
             {theme.isMobile != undefined &&
                 manifest.length > 0 &&
                 manifest.map((item, index) => {
                     if (!visibleItems.includes(index)) return null;
+                    if (item.type == "") return null;
 
                     const zIndex = stack.indexOf(index);
-
                     return (
-                        <ChromeMockup
+                        <Mockup
                             key={index}
-                            content={{
-                                imgUrl: item.imgUrl,
-                                pageUrl: item.pageUrl,
-                                dims: item.dims || {
-                                    width: 800,
-                                    height: 600,
-                                },
-                                title: item.title || "Mockup Content",
-                                description:
-                                    item.description ||
-                                    "No description provided.",
-                            }}
+                            content={item}
                             position={item.position}
                             platform={theme.platform}
                             active={active === index}
@@ -118,6 +96,7 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
                 }}
                 onClick={() => useStore.setState({ active: null })}
             />
+            <Toggle />
         </>
     );
 }

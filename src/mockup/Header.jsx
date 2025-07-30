@@ -4,6 +4,7 @@ import ControlBar from "./ControlBar";
 import NavigationBar from "./NavigationBar";
 
 export default function Header({
+    type,
     platform,
     colors,
     isMobile,
@@ -19,7 +20,7 @@ export default function Header({
     return (
         <Box
             sx={{
-                backdropFilter: minimized ? "blur(10px)" : "blur(50px)",
+                backdropFilter: minimized ? "blur(15px)" : "blur(50px)",
                 px: minimized || closed ? 2 : "auto",
                 py: minimized || closed ? 1 : "auto",
                 backgroundColor:
@@ -27,10 +28,9 @@ export default function Header({
                 color:
                     closed || (isMobile && active)
                         ? "rgba(255, 255, 255, 1)"
-                        : "auto",
+                        : "rgba(50, 50, 50, 1)",
                 transition: "all 0.3s ease",
-                // mixBlendMode:
-                //     closed || (isMobile && active) ? "none" : "difference",
+                mixBlendMode: closed || (isMobile && active) ? "none" : "none",
             }}
             className="drag-handle"
         >
@@ -45,10 +45,12 @@ export default function Header({
                         setClosed={setClosed}
                         setMinimized={setMinimized}
                     />
-                    <NavigationBar
-                        content={content}
-                        colors={colors}
-                    />
+                    {content.type == "web" && (
+                        <NavigationBar
+                            content={content}
+                            colors={colors}
+                        />
+                    )}
                 </>
             )}
         </Box>

@@ -3,10 +3,13 @@ import { Box, Typography, Paper, Tooltip } from "@mui/material";
 import Draggable from "react-draggable";
 import { useTheme } from "@mui/material";
 
-import Header from "./mockup/Header";
+import Header from "./Header";
 import Info from "./Info";
+import ChromeViewport from "./ChromeViewport";
+import PdfViewport from "./PdfViewport";
+import { m } from "framer-motion";
 
-export default function ChromeMockup({
+export default function Mockup({
     content = {
         imgUrl: null,
         pageUrl: null,
@@ -29,7 +32,6 @@ export default function ChromeMockup({
     const [loaded, setLoaded] = useState(false);
     const [maximized, setMaximized] = useState(false);
     const [minimized, setMinimized] = useState(false);
-    const [toolUp, setToolUp] = useState(false);
     const [dragPos, setDragPos] = useState({
         x: position.left,
         y: position.top,
@@ -37,7 +39,7 @@ export default function ChromeMockup({
 
     const backImgS = {
         backgroundImage: content.imgUrl
-            ? `url(img/desktop/${content.imgUrl})`
+            ? `url(img/${isMobile ? "mobile" : "desktop"}/${content.imgUrl})`
             : "none",
         backgroundSize: "300%",
         backgroundPosition: "center",
@@ -45,14 +47,11 @@ export default function ChromeMockup({
 
     useEffect(() => {
         setMaximized(false);
-        // if (active) {
-        //     if (!isMobile) {
-        //         setMinimized(false);
-        //     }
-        //     if (isMobile) {
-        //         setToolUp(true);
-        //     }
-        // }
+        if (active) {
+            if (!isMobile) {
+                setMinimized(false);
+            }
+        }
     }, [active]);
 
     useEffect(() => {
@@ -74,20 +73,38 @@ export default function ChromeMockup({
         if (isMobile) {
             setTimeout(() => {
                 setLoaded(true);
-                // if (isMobile) {
-                //     setToolUp(true);
-                // }
             }, "1000");
         }
     }, []);
 
-    const w = closed || minimized ? "auto" : maximized ? "80vw" : "33vw";
+    const dims = {
+        web: {
+            width: "33vw",
+            minWidth: isMobile ? "auto" : "500px",
+            minHeight: "auto",
+        },
+        pdf: {
+            width: "25vw",
+            minWidth: isMobile ? "auto" : "350px",
+            minHeight: "50vh",
+        },
+        // image: { width: 800, height: 600 },
+    };
+
+    const w =
+        closed || minimized
+            ? "auto"
+            : maximized
+            ? "80vw"
+            : dims[content.type].width;
+
     const mS = "1vw";
 
     return (
         <Draggable
             handle=".drag-handle"
             bounds="#root"
+            cancel=".btns"
             nodeRef={nodeRef}
             disabled={maximized || closed}
             position={maximized ? { x: 0, y: 0 } : dragPos}
@@ -99,8 +116,13 @@ export default function ChromeMockup({
             }}
             onMouseDown={(e) => {
                 e.stopPropagation();
+                if (e.target.classList && e.target.classList.contains("btns"))
+                    console.log("btns");
                 onClick();
             }}
+            // onMouseUp={(e) => {
+            //     e.stopPropagation();
+            // }}
         >
             <Box
                 ref={nodeRef}
@@ -131,12 +153,19 @@ export default function ChromeMockup({
                     <Paper
                         elevation={active ? 10 : 1}
                         sx={{
-                            minWidth: w,
+                            minWidth:
+                                minimized || closed
+                                    ? "auto"
+                                    : dims[content.type].minWidth,
+                            width: w,
                             maxWidth: w,
-                            maxHeight: maximized ? "90vh" : "auto",
+                            maxHeight: maximized
+                                ? "90vh"
+                                : dims[content.type].minHeight,
+                            height: maximized ? "90vh" : "auto",
 
                             transformOrigin: "center",
-                            // m: maximized ? 5 : 0,
+
                             borderRadius: closed || minimized ? "1000px" : 2,
                             overflow: "hidden",
                             backgroundColor: colors.main,
@@ -144,13 +173,15 @@ export default function ChromeMockup({
                             ...(imgBackground ? backImgS : {}),
                             transition:
                                 "min-width 0.3s ease,max-width 0.3s ease",
+                            display: "flex",
+                            flexDirection: "column",
                         }}
                         className="browser"
                     >
                         {/* Header */}
 
                         <Header
-                            platform={platform}
+                            platform={"win"}
                             colors={colors}
                             isMobile={isMobile}
                             maximized={maximized}
@@ -164,73 +195,50 @@ export default function ChromeMockup({
                         />
 
                         {!isMobile && (
-                            // Desktop version ------------------
                             <Box
                                 sx={{
-                                    backgroundColor: "#fff",
-
+                                    // backgroundColor: "#fff",
                                     display: "flex",
-                                    justifyContent: "center",
-                                    alignItems: "center",
+                                    justifyContent: "flex-start",
+                                    alignItems: "flex-start",
                                     cursor: "pointer",
-                                    overflow: "hidden",
+                                    overflowY:
+                                        content.type == "pdf"
+                                            ? "auto"
+                                            : "hidden",
+                                    overflowX: "hidden",
+                                    height: "100%",
+                                    backdropFilter: "blur(50px)",
+                                    userSelect: "none",
                                 }}
                                 className="drag-handle"
                             >
-                                {closed || minimized ? null : content.imgUrl ? (
-                                    <img
-                                        src={`/img/desktop/${content.imgUrl}`}
-                                        alt={content.title}
-                                        draggable={false}
-                                        onLoad={() => setLoaded(true)}
-                                        style={{
-                                            maxWidth: "100%",
-                                            maxHeight: "100%",
-                                            objectFit: "contain",
-                                        }}
+                                {closed || minimized ? null : content.type ==
+                                  "web" ? (
+                                    <ChromeViewport
+                                        content={content}
+                                        colors={colors}
+                                        maximized={maximized}
+                                        onLoad={setLoaded}
                                     />
-                                ) : (
-                                    <Typography
-                                        variant="body2"
-                                        color="text.secondary"
-                                    >
-                                        No image loaded
-                                    </Typography>
-                                )}
-
-                                {/* {maximized ? (
-                                <iframe
-                                    src={content.pageUrl}
-                                    title={content.title}
-                                    style={{
-                                        width: "100%",
-                                        height: "100%",
-                                        border: "none",
-                                        scale: 0.5,
-                                    }}
-                                />
-                            ) : content.imgUrl ? (
-                                <img
-                                    src={content.imgUrl}
-                                    alt={content.title}
-                                    draggable={false}
-                                    onLoad={() => setLoaded(true)}
-                                    style={{
-                                        maxWidth: "100%",
-                                        maxHeight: "100%",
-                                        objectFit: "contain",
-                                    }}
-                                />
-                            ) : (
-                                <Typography
-                                    variant="body2"
-                                    color="text.secondary"
-                                >
-                                    No image loaded
-                                </Typography>
-                            )} */}
+                                ) : content.type == "pdf" ? (
+                                    <PdfViewport
+                                        content={content}
+                                        colors={colors}
+                                        maximized={maximized}
+                                        onLoad={setLoaded}
+                                        active={active}
+                                    />
+                                ) : null}
                             </Box>
                         )}
+
+                        {/* <ChromeViewport
+                                        content={content}
+                                        colors={colors}
+                                        maximized={maximized}
+                                        onLoad={setLoaded}
+                                    /> */}
 
                         {isMobile || closed || minimized ? null : (
                             <Info

@@ -78,7 +78,7 @@ export default function About() {
                         // zIndex: 10,
                         background:
                             "linear-gradient(to bottom, black 0%, transparent 100%)",
-                        opacity: active === null ? 0 : 0.5,
+                        opacity: active === null ? 1 : 0.8,
                         transition: "opacity 0.5s ease, filter 0.2s ease",
                     }}
                 ></Box>
