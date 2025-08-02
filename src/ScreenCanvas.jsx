@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 
 import Mockup from "./mockup/Mockup";
 import Toggle from "./Toggle";
+import Overlay from "./Overlay";
 
 import { useTheme } from "@mui/material";
 import { useStore } from "./store/useStore";
@@ -67,36 +68,11 @@ export default function ScreenCanvas({ manifest, desktopRef }) {
                         />
                     );
                 })}
-            {/* Dark background overlay */}
-            <Box
-                sx={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    zIndex: 100,
 
-                    opacity: active === null || theme.isMobile ? 0 : 0.5,
-                    backgroundColor: colors.background,
-                    transition: "opacity 0.5s ease",
-                    pointerEvents: "none",
-                }}
+            <Overlay
+                active={active}
+                zIndex={stack.length - 1}
             />
-            {/* Dummy for outside click*/}
-            <Box
-                sx={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    width: "100vw",
-                    height: "100vh",
-                    opacity: active === null ? 0 : 100,
-                    pointerEvents: "auto",
-                }}
-                onClick={() => useStore.setState({ active: null })}
-            />
-            <Toggle />
         </>
     );
 }

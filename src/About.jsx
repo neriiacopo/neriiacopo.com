@@ -4,6 +4,8 @@ import { Box, Stack, Typography } from "@mui/material";
 import { useTheme } from "@mui/material";
 import { useStore } from "./store/useStore";
 
+import MainText from "./MainText";
+
 export default function About() {
     const theme = useTheme();
     const colors = theme.colors;
@@ -32,6 +34,10 @@ export default function About() {
                 ? "With a research at the intersection of design, computer science, and the humanities, Iacopo Neri has been involved in teaching activities since 2015 in several institutions around Europe. Currently serving as scientific collaborator for the MPG Center for Digital Visual Studies and Computational Lead for IAAC, he is passionate about the implications of machine learning for urban, cultural and social studies."
                 : manifest[active]?.description,
     };
+
+    const title = "Iacopo Neri";
+    const subtitle =
+        "With a research at the intersection of design, computer science, and the humanities, Iacopo Neri has been involved in teaching activities since 2015 in several institutions around Europe. Currently serving as scientific collaborator for the MPG Center for Digital Visual Studies and Computational Lead for IAAC, he is passionate about the implications of machine learning for urban, cultural and social studies.";
 
     return (
         <Box
@@ -83,37 +89,11 @@ export default function About() {
                     }}
                 ></Box>
             </Box>
-            <Stack
-                sx={{
-                    position: "fixed",
-                    top: 0,
-                    left: 0,
-                    p: 4,
 
-                    width: theme.isMobile ? "100%" : "33%",
-                    // mixBlendMode: "difference",
-                }}
-            >
-                <Typography
-                    sx={{
-                        fontSize: "2rem",
-                        fontFamily: "Manrope, sans-serif",
-                        fontWeight: 800,
-                        pb: 2,
-                    }}
-                >
-                    {textContent.title}
-                </Typography>
-                <Typography
-                    sx={{
-                        fontSize: "0.7rem",
-                        fontFamily: "Manrope, sans-serif",
-                    }}
-                    variant="body1"
-                >
-                    {textContent.description}
-                </Typography>
-            </Stack>
+            <MainText
+                title={title}
+                description={subtitle}
+            />
             <Box
                 sx={{
                     position: "fixed",
