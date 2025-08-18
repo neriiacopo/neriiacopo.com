@@ -28,7 +28,8 @@ export default function Header({
                 color:
                     closed || (isMobile && active)
                         ? "rgba(255, 255, 255, 1)"
-                        : "rgba(50, 50, 50, 1)",
+                        : // : "rgba(255, 255, 255, 1)",
+                          "rgba(50, 50, 50, 1)",
                 transition: "all 0.3s ease",
                 mixBlendMode: closed || (isMobile && active) ? "none" : "none",
             }}

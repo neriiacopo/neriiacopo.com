@@ -75,7 +75,7 @@
             "width": 1919,
             "height": 1060
         },
-        "description": "Awarded best idea at the Basque government’s open data contest (2022), Itzal - or “Shadow” in Euskara - is a routing web app to fight the harsh spanish summer sun. It allows users to see pathways that minimize exposure to sun at different times of the day. Thanks to this alternative route, users can reduce risk to sun heat and high temperatures in order to avoid possible dizziness, sunstroke and heat stroke and improve the experience of active and healthy mobility throughout summer. Technically it exploits a mix of 3D modeling and climatic forecasting to evaluate ad-hoc shortest paths over a road graph."
+        "description": "Awarded best idea at the Basque government’s open data contest (2022), Itzal - or Shadow” in Euskara - is a routing web app to fight the harsh spanish summer sun. It allows users to see pathways that minimize exposure to sun at different times of the day. Thanks to this alternative route, users can reduce risk to sun heat and high temperatures in order to avoid possible dizziness, sunstroke and heat stroke and improve the experience of active and healthy mobility throughout summer. Technically it exploits a mix of 3D modeling and climatic forecasting to evaluate ad-hoc shortest paths over a road graph."
     },
 
     {
@@ -124,5 +124,16 @@
             "height": 1060
         },
         "description": "Cityscapes Transformed: Immersive Exploration at the Intersection of Culture, Computation, and Curatorial Practices” explores how machine learning can reframe urban and cultural narratives. Developed for the 2023 Helsinki Art Biennial in collaboration with the Centre for Digital Visual Studies (MPG, University of Zurich) and artist Yehwan Song, the project reinterprets the Helsinki Art Museum’s collection by embedding unexhibited artworks into computer-generated 360° panoramas of the city. Through a web-based interactive platform, visitors can navigate this speculative geography where cityscapes and artworks merge, inviting new reflections on curatorial practices, machinic aesthetics, and audience engagement."
+    },
+    {
+        "type": "web",
+        "title": "VORD",
+        "imgUrl": "vord.png",
+        "pageUrl": "https://dvstudies.github.io/vord/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        },
+        "description": "VORD (Visual Open Research Data) is a swissuniversities-funded project that develops innovative techniques for extracting quantitative insights from large-scale cultural heritage datasets. By combining advanced machine learning models for color, composition, and semantic embedding analysis, VORD shifts from whole-image interpretation to fine-grained, object-level understanding. This methodology enhances model transparency and interpretability, offering new tools for researchers, curators, and educators while promoting open data reuse and interoperability across art historical databases."
     }
 ]

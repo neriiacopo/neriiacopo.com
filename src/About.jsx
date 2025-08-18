@@ -37,7 +37,7 @@ export default function About() {
 
     const title = "Iacopo Neri";
     const subtitle =
-        "With a research at the intersection of design, computer science, and the humanities, Iacopo Neri has been involved in teaching activities since 2015 in several institutions around Europe. Currently serving as scientific collaborator for the MPG Center for Digital Visual Studies and Computational Lead for IAAC, he is passionate about the implications of machine learning for urban, cultural and social studies.";
+        "With a research at the intersection of design, computer science, and the humanities, Iacopo Neri has been involved in academia since 2015 in several institutions around Europe. Currently serving as scientific collaborator for the MPG Center for Digital Visual Studies and Computational Lead for IAAC, he is passionate about the implications of machine learning for urban, cultural and social studies.";
 
     return (
         <Box
