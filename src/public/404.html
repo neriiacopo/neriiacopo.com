@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Redirecting…</title>
+        <script>
+            // Based on rafrex/spa-github-pages
+            (function (l) {
+                var path = l.pathname + l.search + l.hash;
+                l.replace(
+                    l.origin +
+                        l.pathname.split("/").slice(0, -1).join("/") +
+                        "/?p=" +
+                        encodeURIComponent(path)
+                );
+            })(window.location);
+        </script>
+    </head>
+    <body>
+        Redirecting…
+    </body>
+</html>

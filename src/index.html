@@ -39,6 +39,16 @@
         </style>
     </head>
     <body>
+        <script>
+            (function () {
+                var params = new URLSearchParams(window.location.search);
+                var p = params.get("p");
+                if (p && window.history && window.history.replaceState) {
+                    window.history.replaceState(null, "", p);
+                }
+            })();
+        </script>
+
         <div id="root"></div>
         <script
             type="module"
