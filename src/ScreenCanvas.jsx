@@ -1,8 +1,6 @@
 import { useState, useEffect, Fragment, use } from "react";
-import { Box } from "@mui/material";
 
 import Mockup from "./mockup/Mockup";
-import Toggle from "./Toggle";
 import Overlay from "./Overlay";
 
 import { useTheme } from "@mui/material";
