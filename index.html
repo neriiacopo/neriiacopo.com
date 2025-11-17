@@ -26,6 +26,27 @@
             type="image/x-icon"
         /> -->
 
+        <!-- Single Page Apps for GitHub Pages -->
+        <script type="text/javascript">
+            // Start single page app redirect
+            (function (l) {
+                if (l.search[1] === "/") {
+                    var decoded = l.search
+                        .slice(1)
+                        .split("&")
+                        .map(function (s) {
+                            return s.replace(/~and~/g, "&");
+                        })
+                        .join("?");
+                    window.history.replaceState(
+                        null,
+                        null,
+                        l.pathname.slice(0, -1) + decoded + l.hash
+                    );
+                }
+            })(window.location);
+        </script>
+
         <!-- mobile debuggind -->
         <!-- <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
         <script>
@@ -39,20 +60,10 @@
         </style>
     </head>
     <body>
-        <script>
-            (function () {
-                var params = new URLSearchParams(window.location.search);
-                var p = params.get("p");
-                if (p && window.history && window.history.replaceState) {
-                    window.history.replaceState(null, "", p);
-                }
-            })();
-        </script>
-
         <div id="root"></div>
         <script
             type="module"
-            src="/index.jsx"
+            src="/src/index.jsx"
         ></script>
     </body>
 </html>

@@ -27,7 +27,7 @@ export default defineConfig({
             ],
         }),
     ],
-    root: "src",
+    root: ".",
     publicDir: "public",
     base: "/",
     server: {
