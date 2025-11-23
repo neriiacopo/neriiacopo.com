@@ -35,7 +35,7 @@ export default defineConfig({
         open: !isCodeSandbox,
     },
     build: {
-        outDir: "../dist",
+        outDir: "./dist",
         emptyOutDir: true,
         sourcemap: true,
     },
