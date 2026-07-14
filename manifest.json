@@ -60,6 +60,7 @@
         "title": "Emerging Assemblages",
         "imgUrl": "kosovo-biennial.png",
         "pageUrl": "https://2025.pavilionofkosovo.com/",
+        "mobileUrl": "https://2025.pavilionofkosovo.com/",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -95,6 +96,7 @@
         "imgUrl": "mimesis.png",
         "pdfUrl": "Mimesis-and-machinic-agency.pdf",
         "pageUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
+        "mobileUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -107,6 +109,7 @@
         "imgUrl": "clip-and-the-city.png",
         "pdfUrl": "Clip-and-the-City.pdf",
         "pageUrl": "https://doi.org/10.60152/eun81fru",
+        "mobileUrl": "https://doi.org/10.60152/eun81fru",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -119,6 +122,7 @@
         "imgUrl": "cityscapes-transformed.png",
         "pdfUrl": "Cityscapes-transformed.pdf",
         "pageUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
+        "mobileUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -152,6 +156,7 @@
         "title": "Tracce",
         "imgUrl": "tracce.png",
         "pageUrl": "https://www.tracce.app",
+        "mobileUrl": "https://www.tracce.app",
         "dims": {
             "width": 1919,
             "height": 1060
