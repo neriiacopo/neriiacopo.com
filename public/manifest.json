@@ -60,6 +60,7 @@
         "title": "Emerging Assemblages",
         "imgUrl": "kosovo-biennial.png",
         "pageUrl": "https://2025.pavilionofkosovo.com/",
+        "mobileUrl": "https://2025.pavilionofkosovo.com/",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -95,6 +96,7 @@
         "imgUrl": "mimesis.png",
         "pdfUrl": "Mimesis-and-machinic-agency.pdf",
         "pageUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
+        "mobileUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -107,6 +109,7 @@
         "imgUrl": "clip-and-the-city.png",
         "pdfUrl": "Clip-and-the-City.pdf",
         "pageUrl": "https://doi.org/10.60152/eun81fru",
+        "mobileUrl": "https://doi.org/10.60152/eun81fru",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -119,6 +122,7 @@
         "imgUrl": "cityscapes-transformed.png",
         "pdfUrl": "Cityscapes-transformed.pdf",
         "pageUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
+        "mobileUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -135,5 +139,29 @@
             "height": 1060
         },
         "description": "VORD (Visual Open Research Data) is a swissuniversities-funded project that develops innovative techniques for extracting quantitative insights from large-scale cultural heritage datasets. By combining advanced machine learning models for color, composition, and semantic embedding analysis, VORD shifts from whole-image interpretation to fine-grained, object-level understanding. This methodology enhances model transparency and interpretability, offering new tools for researchers, curators, and educators while promoting open data reuse and interoperability across art historical databases."
+    },
+    {
+        "type": "web",
+        "title": "Funding of Sight",
+        "imgUrl": "funding-of-sight.png",
+        "pageUrl": "https://neriiacopo.github.io/thefundingofsight/",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        },
+        "description": "The Funding of Sight is an interactive web artwork, presented at the ECCV Art Gallery, that exposes the political economy of computer vision research by tracing how conference sponsorship ties academic innovation to surveillance and warfare. By combining data visualization, investigative research, and semantic media analysis of a sponsor dataset, the piece shifts from the sanitized public rhetoric of AI hype to the stark, infrastructural realities of military deployment and privacy intrusion. This critical methodology transforms the visualization into a site of institutional reflection, inviting researchers and the public to confront the ethical consequences of academic funding while questioning what forms of sight are being optimized and for whom."
+    },
+    {
+        "type": "web",
+        "title": "Tracce",
+        "imgUrl": "tracce.png",
+        "pageUrl": "https://www.tracce.app",
+        "mobileUrl": "https://www.tracce.app",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        },
+
+        "description": "Tracce is a web application developed to enhance the autonomy of people with reduced mobility in the city of Monza by transforming everyday experiences into actionable urban planning data. Centered on a user-experience (UX) and participatory design methodology, the app provides personalized, accessible route planning that factors in sidewalk widths, ramps, and pedestrian lighting, while offering a second path alternative to the standard fastest route. Through a georeferenced crowdsourced reporting system, Tracce empowers citizens to flag physical barriers directly on the map, creating a dynamic data layer that actively assists local authorities in updating and implementing the city's Plan for the Elimination of Architectural Barriers (PEBA)."
     }
 ]
