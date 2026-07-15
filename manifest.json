@@ -1,9 +1,11 @@
 [
     {
         "type": "web",
+        "meta": { "tag": "research", "nature": "commissioned" },
         "title": "Digital F(r)ictions",
         "imgUrl": "digital-frictions.png",
         "pageUrl": "https://www.digital-frictions.com/",
+        "year": "2025-05",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -12,10 +14,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "app", "nature": "personal" },
         "title": "Fly-Meet",
         "imgUrl": "fly-meet.png",
-        "gifUrl": "/gif/flymeet3.gif",
         "pageUrl": "https://www.fly-meet.com/",
+        "year": "2020-06",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -24,9 +27,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "app", "nature": "commissioned" },
         "title": "3D Visibility study",
         "imgUrl": "3d-visibility.png",
         "pageUrl": "https://neriiacopo.github.io/webviewer-3Dvisibility/index",
+        "year": "2021-09",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -35,9 +40,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "website", "nature": "academia" },
         "title": "Multipli(city)",
         "imgUrl": "multipli-city.png",
         "pageUrl": "https://multipli-city.github.io/2023-24/",
+        "year": "2023-10",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -46,9 +53,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "research", "nature": "academia" },
         "title": "Cities Matchmaking",
         "imgUrl": "greening-cities.png",
         "pageUrl": "https://neriiacopo.github.io/CitiesMatchMaking-viz/",
+        "year": "2023-01",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -57,10 +66,12 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "website", "nature": "commissioned" },
         "title": "Emerging Assemblages",
         "imgUrl": "kosovo-biennial.png",
         "pageUrl": "https://2025.pavilionofkosovo.com/",
         "mobileUrl": "https://2025.pavilionofkosovo.com/",
+        "year": "2025-06",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -69,9 +80,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "research", "nature": "personal" },
         "title": "Itzal",
         "imgUrl": "itzal.png",
         "pageUrl": "https://neriiacopo.github.io/itzal-landingpage/",
+        "year": "2022-08",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -80,23 +93,14 @@
     },
 
     {
-        "type": "",
-        "title": "Latent Space Navigator",
-        "imgUrl": "latent-space-navigator.png",
-        "pageUrl": "https://neriiacopo.github.io/LatentSpaceNavigator/",
-        "dims": {
-            "width": 1919,
-            "height": 1060
-        }
-    },
-
-    {
         "type": "pdf",
+        "meta": { "tag": "article", "nature": "academia" },
         "title": "Mimesis and Machinic Agency",
         "imgUrl": "mimesis.png",
         "pdfUrl": "Mimesis-and-machinic-agency.pdf",
         "pageUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
         "mobileUrl": "https://2024.xcoax.org/pdf/negueruela.pdf",
+        "year": "2024-06",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -105,11 +109,13 @@
     },
     {
         "type": "pdf",
+        "meta": { "tag": "article", "nature": "academia" },
         "title": "Clip and the City",
         "imgUrl": "clip-and-the-city.png",
         "pdfUrl": "Clip-and-the-City.pdf",
         "pageUrl": "https://doi.org/10.60152/eun81fru",
         "mobileUrl": "https://doi.org/10.60152/eun81fru",
+        "year": "2023-06",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -118,11 +124,13 @@
     },
     {
         "type": "pdf",
+        "meta": { "tag": "article", "nature": "commissioned" },
         "title": "Cityscapes Transformed",
         "imgUrl": "cityscapes-transformed.png",
         "pdfUrl": "Cityscapes-transformed.pdf",
         "pageUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
         "mobileUrl": "https://disegno.mome.hu/lapszamok/disegno-2023-1/#neri",
+        "year": "2024-05",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -131,9 +139,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "research", "nature": "commissioned" },
         "title": "VORD",
         "imgUrl": "vord.png",
         "pageUrl": "https://dvstudies.github.io/vord/",
+        "year": "2025-09",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -142,9 +152,11 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "research", "nature": "personal" },
         "title": "Funding of Sight",
         "imgUrl": "funding-of-sight.png",
         "pageUrl": "https://neriiacopo.github.io/thefundingofsight/",
+        "year": "2026-06",
         "dims": {
             "width": 1919,
             "height": 1060
@@ -153,10 +165,12 @@
     },
     {
         "type": "web",
+        "meta": { "tag": "app", "nature": "commissioned" },
         "title": "Tracce",
         "imgUrl": "tracce.png",
         "pageUrl": "https://www.tracce.app",
         "mobileUrl": "https://www.tracce.app",
+        "year": "2026-01",
         "dims": {
             "width": 1919,
             "height": 1060
