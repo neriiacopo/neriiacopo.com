@@ -151,6 +151,49 @@
         "description": "VORD (Visual Open Research Data) is a swissuniversities-funded project that develops innovative techniques for extracting quantitative insights from large-scale cultural heritage datasets. By combining advanced machine learning models for color, composition, and semantic embedding analysis, VORD shifts from whole-image interpretation to fine-grained, object-level understanding. This methodology enhances model transparency and interpretability, offering new tools for researchers, curators, and educators while promoting open data reuse and interoperability across art historical databases."
     },
     {
+        "type": "img",
+        "meta": { "tag": "research", "nature": "commissioned" },
+        "title": "Drumming for Love",
+        "imgUrl": "drumming-for-love.jpg",
+        "imgs": [
+            "drumming-for-love/drumming-for-love.jpg",
+            "drumming-for-love/drumming-for-love-anim.gif",
+            "drumming-for-love/drumming-for-love-2.jpg",
+            "drumming-for-love/drumming-for-love-3.jpg",
+            "drumming-for-love/drumming-for-love-4.jpg"
+        ],
+        "pageUrl": "https://ars.electronica.art/starts-prize/en/drumming-for-love/",
+        "year": "2025-12",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        },
+        "picby": "Giorgia Mirabile",
+        "description": "Drumming for Love is an award-winning installation and research project by Erze Dinarama in collaboration with Iacopo Neri that investigates the political economy of drought governance and water scarcity along Italy's Po River. Through a multi-layered combination of spatial mapping and digital fabrication, the project translates ecological data and the vibrational communications of riverbed aquatic insects into five custom-built interactive devices. By juxtaposing administrative thresholds with more-than-human communication systems, the work challenges top-down environmental policy, turning scientific measurements and fieldwork into a tactile, sensory counter-device that invites the public to renegotiate shared hydrological futures."
+    },
+    {
+        "type": "img",
+        "meta": { "tag": "research", "nature": "commissioned" },
+        "title": "Artifacts of the Future - Face Scanner",
+        "imgUrl": "face-scanner.jpeg",
+        "imgs": [
+            "face-scanner/face-scanner-0.jpeg",
+            "face-scanner/face-scanner-1.jpeg",
+            "face-scanner/face-scanner-2.jpeg",
+            "face-scanner/face-scanner-anim.gif",
+            "face-scanner/face-scanner-3.png",
+            "face-scanner/face-scanner-4.jpeg"
+        ],
+        "pageUrl": "https://www.artefactsofthefuture.ethz.ch/face-scanner-2",
+        "year": "2026-07",
+        "dims": {
+            "width": 1919,
+            "height": 1060
+        },
+        "picby": "Arthur Heck",
+        "description": "Face Scanner, 2075 is a speculative artwork by Erzë Dinarama, in collaboration with Iacopo Neri for the ETH Zürich exhibition 'Artefacts of the Future,' that critically examines the ambient rise of biometric surveillance and automated facial interpretation. Beyond its narrative framing on visual ethics, the project centers on a custom computational design pipeline developed for Rhinoceros 3D to bridge real-time computer vision and 3D modeling. By capturing live gaze patterns via Google MediaPipe and streaming this spatial data directly into Grasshopper/Rhino, the workflow allows designer to deforms and manipulates 3D geometry with their eyes, and the 3D printed sculpture is one example."
+    },
+    {
         "type": "web",
         "meta": { "tag": "research", "nature": "personal" },
         "title": "Funding of Sight",
